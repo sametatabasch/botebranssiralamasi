@@ -48,12 +48,12 @@
     <div class="panel panel-primary">
         <!-- Default panel contents -->
         <div class="panel-heading">
-            <h3 class="panel-title">BÖTE Branş Sıralaması</h3>
+            <h3 class="panel-title">2016 BÖTE Branş Sıralaması</h3>
 
         </div>
         <div class="panel-body">
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
+            <div class="col-lg-4 col-xs-6">
+                <!-- Girilen KPSS puan sayısı small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3><?= $db->query("SELECT count(puan) AS puanSayisi FROM `liste`")->fetch()['puanSayisi'] ?></h3>
@@ -63,39 +63,40 @@
                     <div class="icon">
                         <i class="glyphicon glyphicon-thumbs-up"></i>
                     </div>
-                    <a href="#" class="small-box-footer" data-toggle="modal" data-target=".mulakatPuaniEkle">
+                    <a href="#" class="small-box-footer" data-toggle="modal" data-target=".yapimasamasi">
                         Sende Ekle <i class="glyphicon glyphicon-circle-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
+            <!-- Max KPSS Puanı small box-->
+            <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3>85</h3>
+                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste`")->fetch()['maxPuan'],3) ?></h3>
 
-                        <p>En çok girilen Mülakat Puanu</p>
+                        <p>Girilen en yüksek KPSS puanı</p>
                     </div>
                     <div class="icon">
                         <i class="glyphicon glyphicon-stats"></i>
                     </div>
-                    <a href="#" class="small-box-footer" data-toggle="modal" data-target=".mukalatFrekans">
+                    <a href="#" class="small-box-footer" data-toggle="modal" data-target=".kpssFrekans">
                         DetaylıBilgi <i class="glyphicon glyphicon-circle-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
+
+            <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>+5</h3>
+                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste`")->fetch()['minPuan'],3) ?></h3>
 
-                        <p>En yüksek KPSS - Mülakat Farkı</p>
+                        <p>Girilen en düşük KPSS puanı</p>
                     </div>
                     <div class="icon">
-                        <i class="glyphicon glyphicon-sort"></i>
+                        <i class="glyphicon glyphicon-stats"></i>
                     </div>
-                    <a href="#" class="small-box-footer" data-toggle="modal" data-target=".yapimasamasi">
+                    <a href="#" class="small-box-footer" data-toggle="modal" data-target=".kpssFrekans">
                         DetaylıBilgi <i class="glyphicon glyphicon-circle-arrow-right"></i>
                     </a>
                 </div>
@@ -106,15 +107,17 @@
                 <th>Sıra</th>
                 <th>Puan</th>
                 <th>Genel Sıralama</th>
+                <th>Güncelleme Tarihi</th>
                 </thead>
                 <tbody>
 
                 <?php $s = 1;
-                foreach ($db->query("SELECT puan,sira,brans FROM liste ORDER BY sira ASC") as $row): ?>
+                foreach ($db->query("SELECT puan,sira,brans,tarih FROM liste ORDER BY sira ASC") as $row): ?>
                     <tr>
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
                         <td><?= $row['brans'] ?></td>
+                        <td><?= $row['tarih'] ?></td>
                     </tr>
                     <?php $s++; endforeach; ?>
                 </tbody>
@@ -153,35 +156,35 @@
 </div>
 
 <!-- Grafik modal-->
-<div class="modal fade  mukalatFrekans" tabindex="-1" role="dialog" aria-labelledby="mulakatFrakansModalLabel">
+<div class="modal fade  kpssFrekans" tabindex="-1" role="dialog" aria-labelledby="kpssFrakansModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="mulakatFrakansModalLabel">Mülakat Puanlarının Frekans Grafiği</h4>
+                <h4 class="modal-title" id="kpssFrakansModalLabel">KPSS Puanlarının Frekans Grafiği</h4>
             </div>
             <div class="modal-body">
                 <?php
-                /*$labels = "[";
+                $labels = "[";
                 $data = "[";
                 foreach ($db->query("SELECT puan,count(*) AS frekans  FROM `liste` GROUP BY puan ORDER BY puan") as $row) {
                     $labels .= '"' . $row['puan'] . '",';
                     $data .= $row['frekans'] . ",";
                 }
                 $labels .= "]";
-                $data .= "]";*/
+                $data .= "]";
                 ?>
-                <!--<canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="myChart" width="400" height="400"></canvas>
                 <script>
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: <?/*= $labels */?>,
+                            labels: <?= $labels ?>,
                             datasets: [{
                                 label: '# Frekans Değeri',
-                                data: <?/*= $data */?>,
+                                data: <?= $data ?>,
                                 backgroundColor: 'rgba(54, 162, 235, 0.4)',
                                 borderColor: 'rgba(0, 38, 255, 1)',
                                 borderWidth: 1
@@ -199,7 +202,7 @@
                             }
                         }
                     });
-                </script>-->
+                </script>
 
             </div>
         </div>
@@ -318,7 +321,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="yapimasamasiModalLabel">Mülakat Puanlarının Frekans Grafiği</h4>
+                <h4 class="modal-title" id="yapimasamasiModalLabel">Yapım Aşamasında</h4>
             </div>
             <div class="modal-body">
                 Yapım Aşamasında
