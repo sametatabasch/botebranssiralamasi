@@ -168,8 +168,8 @@
                 <?php
                 $labels = "[";
                 $data = "[";
-                foreach ($db->query("SELECT round(puan),count(*) AS frekans  FROM `liste` GROUP BY puan ORDER BY puan") as $row) {
-                    $labels .= '"' . $row['puan'] . '",';
+                foreach ($db->query("SELECT round(puan)AS kpss, count(round(puan)) AS frekans  FROM `liste` GROUP BY kpss ORDER BY kpss") as $row) {
+                    $labels .= '"' . $row['kpss'] . '",';
                     $data .= $row['frekans'] . ",";
                 }
                 $labels .= "]";
