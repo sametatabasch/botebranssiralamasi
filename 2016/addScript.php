@@ -32,7 +32,7 @@ echo
                     "Puanınızın isimsiz olarak kaydedilmesini ister misiniz? ";
                 /*yes ve no butonları tıklama dinleyicisi ekle*/
                 $(".yes").click(function () {
-                    $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "\" width=\"100%\" height=\"100%\">");
+                    $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/2016/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "\" width=\"100%\" height=\"100%\">");
                     $(this).hide();
                 });
                 $("#window").kendoWindow({

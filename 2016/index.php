@@ -284,7 +284,7 @@
                 <p>Hazırlanan javascript kodunu kullanarak branş sıralamanızı ekleyebilirsiniz.</p>
                 <p>
                 <ol>
-                    <li>İlk olarak <a target="_blank" href="https://github.com/sametatabasch/botebranssiralamasi/blob/master/siralamaBelirle.js">buraya</a>
+                    <li>İlk olarak <a target="_blank" href="https://github.com/sametatabasch/botebranssiralamasi/blob/master/2016/siralamaBelirle.js">buraya</a>
                         tıklayarak açılan sayfadaki kodların tamamını kopyalayın
                     </li>
                     <li>
