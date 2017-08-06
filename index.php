@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BÖTE Branş Sıralaması</title>
+    <title>2017 - BÖTE Branş Sıralaması</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -48,7 +48,7 @@
     <div class="panel panel-primary">
         <!-- Default panel contents -->
         <div class="panel-heading">
-            <h3 class="panel-title">2016 BÖTE Branş Sıralaması</h3>
+            <h3 class="panel-title">2017 BÖTE Branş Sıralaması</h3>
 
         </div>
         <div class="panel-body">
@@ -56,7 +56,7 @@
                 <!-- Girilen KPSS puan sayısı small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3><?= $db->query("SELECT count(puan) AS puanSayisi FROM `liste`")->fetch()['puanSayisi'] ?></h3>
+                        <h3><?= $db->query("SELECT count(puan) AS puanSayisi FROM liste2017")->fetch()['puanSayisi'] ?></h3>
 
                         <p>KPSS puanı girildi</p>
                     </div>
@@ -73,7 +73,7 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste`")->fetch()['maxPuan'],3) ?></h3>
+                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste2017`")->fetch()['maxPuan'],3) ?></h3>
 
                         <p>Girilen en yüksek KPSS puanı</p>
                     </div>
@@ -89,7 +89,7 @@
             <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste`")->fetch()['minPuan'],3) ?></h3>
+                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste2017`")->fetch()['minPuan'],3) ?></h3>
 
                         <p>Girilen en düşük KPSS puanı</p>
                     </div>
@@ -112,7 +112,7 @@
                 <tbody>
 
                 <?php $s = 1;
-                foreach ($db->query("SELECT puan,sira,brans,tarih FROM liste ORDER BY sira ASC") as $row): ?>
+                foreach ($db->query("SELECT puan,sira,brans,tarih FROM liste2017 ORDER BY sira ASC") as $row): ?>
                     <tr>
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
@@ -149,6 +149,7 @@
             </script>
         </div>
         <div class="panel-footer">
+            <a class="pull-left" href="/2016">2016 Listesi</a>
             <a class="pull-right" href="http://gencbilisim.net">Samet Atabaş - GençBilişim.net</a>
             <div class="clearfix"></div>
         </div>
@@ -168,7 +169,7 @@
                 <?php
                 $labels = "[";
                 $data = "[";
-                foreach ($db->query("SELECT round(puan)AS kpss, count(round(puan)) AS frekans  FROM `liste` GROUP BY kpss ORDER BY kpss") as $row) {
+                foreach ($db->query("SELECT round(puan)AS kpss, count(round(puan)) AS frekans  FROM `liste2017` GROUP BY kpss ORDER BY kpss") as $row) {
                     $labels .= '"' . $row['kpss'] . '",';
                     $data .= $row['frekans'] . ",";
                 }
@@ -221,7 +222,7 @@
                 <div class="alert alert-info" role="alert">
                     <div class="pull-left">
                         Lütfen sonucunuzu
-                        <a class="alert-link" href="https://sonuc.osym.gov.tr/Sorgu.aspx?SonucID=4110"> 2016 KPSS sonuç
+                        <a class="alert-link" href="https://sonuc.osym.gov.tr/Sorgu.aspx?SonucID=4110"> 2017 KPSS sonuç
                             Sayfasından</a>
                         kopyalayarak olduğu gibi yazın.
                     </div>
@@ -288,7 +289,7 @@
                         tıklayarak açılan sayfadaki kodların tamamını kopyalayın
                     </li>
                     <li>
-                        Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2016/1/BransBazindaSiralama">ÖSYM Branş Sıralaması sayfasına</a> giriş yapın.
+                        Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2017/1/BransBazindaSiralama">ÖSYM Branş Sıralaması sayfasına</a> giriş yapın.
                     </li>
                     <li>
                         ÖSYM Branş Sıralaması sayfasındayken adres çubuğunu temizleyin ve <b>javascript:</b> yazıp hemen

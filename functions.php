@@ -22,7 +22,7 @@ function listeyeEkle($puan,$sira,$brans){
     global $db;
     $tarih = date('d.m.Y');
     try{
-        $query = $db->prepare("REPLACE INTO liste (puan,sira,brans,tarih) VALUES (:puan,:sira,:brans,:tarih)");
+        $query = $db->prepare("REPLACE INTO liste2017 (puan,sira,brans,tarih) VALUES (:puan,:sira,:brans,:tarih)");
         $query->bindParam(':puan',$puan);
         $query->bindParam(':sira',$sira);
         $query->bindParam(':brans',$brans);

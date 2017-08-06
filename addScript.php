@@ -8,7 +8,7 @@
 
 echo
 '(function () {
-    if (location.pathname == "/KPSS1/2016/1/BransBazindaSiralama") {
+    if (location.pathname == "/KPSS1/2017/1/BransBazindaSiralama") {
         var A = "2712,2547,2399,1995,1996,1997,1999,2000,2365,2001,2412,2087,2545,2118,2396,1998,2529".split(",");
         document.getElementById("SorgulaModel_YerlesenleriDahilEtme").checked = true;
         var brans = $("input:checked", "#listViewProgramlar")[0].labels[0].innerHTML.split(" - ")[1];
@@ -50,9 +50,7 @@ echo
             }
         });
     } else {
-        alert("Bu kod sadece 2016 Kpss için kullanılır.")
+        alert("Bu kod sadece 2017 Kpss için kullanılır.")
     }
 })();
-
-
 ';
