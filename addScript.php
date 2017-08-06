@@ -9,7 +9,7 @@
 echo
 '(function () {
     if (location.pathname == "/KPSS1/2016/1/BransBazindaSiralama") {
-        var A = "2712,2547,2399,1995,1996,1997,1999,2000,2365,2001,2412,2087,2545,2118,2407,1998,2529".split(",");
+        var A = "2712,2547,2399,1995,1996,1997,1999,2000,2365,2001,2412,2087,2545,2118,2744,1998,2529".split(",");
         document.getElementById("SorgulaModel_YerlesenleriDahilEtme").checked = true;
         var brans = $("input:checked", "#listViewProgramlar")[0].labels[0].innerHTML.split(" - ")[1];
         for (x of document.getElementById("listViewProgramlar").querySelectorAll("input[type=\"checkbox\"]")) A.indexOf(x.id) > -1 ? x.checked = true : x.parentNode.remove();
