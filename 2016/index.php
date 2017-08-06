@@ -41,7 +41,9 @@
 
     </script>
     <script type="text/javascript" src="js/jquery.inputmask.bundle.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+    <!--Highchart  -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -73,7 +75,7 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste`")->fetch()['maxPuan'],3) ?></h3>
+                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste`")->fetch()['maxPuan'], 3) ?></h3>
 
                         <p>Girilen en yüksek KPSS puanı</p>
                     </div>
@@ -89,7 +91,7 @@
             <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste`")->fetch()['minPuan'],3) ?></h3>
+                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste`")->fetch()['minPuan'], 3) ?></h3>
 
                         <p>Girilen en düşük KPSS puanı</p>
                     </div>
@@ -155,8 +157,8 @@
     </div>
 </div>
 
-<!-- Grafik modal-->
-<div class="modal fade  kpssFrekans" tabindex="-1" role="dialog" aria-labelledby="kpssFrakansModalLabel">
+<!-- HighChart Grafik modal-->
+<div class="modal fade  kpssFrekans" tabindex="-1" role="dialog" aria-labelledby="kpssFrekansModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -165,6 +167,7 @@
                 <h4 class="modal-title" id="kpssFrekansModalLabel">KPSS Puanlarının Frekans Grafiği</h4>
             </div>
             <div class="modal-body">
+                <div id="container" style="width:100%; height:400px;"></div>
                 <?php
                 $labels = "[";
                 $data = "[";
@@ -175,96 +178,28 @@
                 $labels .= "]";
                 $data .= "]";
                 ?>
-                <canvas id="myChart" width="400" height="400"></canvas>
                 <script>
-                    var ctx = document.getElementById("myChart");
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: <?= $labels ?>,
-                            datasets: [{
-                                label: '# Frekans Değeri',
-                                data: <?= $data ?>,
-                                backgroundColor: 'rgba(54, 162, 235, 0.4)',
-                                borderColor: 'rgba(0, 38, 255, 1)',
-                                borderWidth: 1
+                    $(function () {
+                        var myChart = Highcharts.chart('container', {
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: 'P10 Frekans Grafiği'
+                            },
+                            xAxis: {
+                                categories: <?=$labels?>
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'P10 Puanı'
+                                }
+                            },
+                            series: [{
+                                name: 'Frekans',
+                                data: <?=$data?>
                             }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        max: 100,
-                                        min: 0,
-                                        stepSize: 1
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                </script>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- KPSS Puan gir Modal -->
-<div class="modal fade kpssPuanGir" tabindex="-1" role="dialog" aria-labelledby="kpssModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="kpssModalLabel">Kpss Puanı Ekle</h4>
-            </div>
-            <div class="modal-body" id="kpssPuanGirModalBody">
-                <div class="alert alert-info" role="alert">
-                    <div class="pull-left">
-                        Lütfen sonucunuzu
-                        <a class="alert-link" href="https://sonuc.osym.gov.tr/Sorgu.aspx?SonucID=4110"> 2016 KPSS sonuç
-                            Sayfasından</a>
-                        kopyalayarak olduğu gibi yazın.
-                    </div>
-
-                    <div class="clearfix"></div>
-                </div>
-
-                <form name="kpssPuanGir" id="kpssPuanGir" method="post" action="kpssEkle.php">
-                    <div class="form-group">
-                        <label for="tcno">TC NO:</label>
-                        <input class="form-control" type="text" data-inputmask="'mask': '9{11}'"
-                               name="tcno" id="tcno" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="kpss">Kpss Puanı:</label>
-                        <input class="form-control" data-inputmask="'mask': '1{*}9{1,2}.9{1,4}'"
-                               id="kpss" name="kpss" required>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control btn btn-default" type="submit" value="Kaydet">
-                    </div>
-                </form>
-                <script type="text/javascript">
-                    $('#kpssPuanGir').on('submit', function () {
-                        $.ajax({
-                            type: 'POST',
-                            url: $(this).attr('action'),
-                            data: $(this).serializeArray(),
-                            success: function (returnData) {
-                                $('#kpssPuanGirModalBody').append(
-                                    '<div class="alert alert-' + returnData['status'] + ' alert-dismissable fade in">' +
-                                    '<i class="fa fa-check"></i>' +
-                                    '<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>' +
-                                    '' + returnData['msg'] +
-                                    '</div>'
-                                );
-                                $('#kpssPuanGir')[0].reset();
-                                var z = setInterval(function () {
-                                    $('#kpssPuanGirModalBody .alert').alert('close');
-                                }, 5000);
-                            }
                         });
-                        return false;
                     });
                 </script>
             </div>
