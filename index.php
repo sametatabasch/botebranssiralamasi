@@ -281,7 +281,7 @@
                 <h4 class="modal-title" id="bransSiralamasiEkleModalLabel">Nasıl Eklenir</h4>
             </div>
             <div class="modal-body">
-                <p>hazırlanan javascript kodunu kullanarak branş sıralamanızı ekleyebilirsiniz.</p>
+                <p>Hazırlanan javascript kodunu kullanarak branş sıralamanızı ekleyebilirsiniz.</p>
                 <p>
                 <ol>
                     <li>İlk olarak <a target="_blank" href="https://github.com/sametatabasch/botebranssiralamasi/blob/master/siralamaBelirle.js">buraya</a>
