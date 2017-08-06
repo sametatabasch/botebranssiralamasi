@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BÖTE Mülakat Sıralaması</title>
+    <title>BÖTE Branş Sıralaması</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -162,7 +162,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="kpssFrakansModalLabel">KPSS Puanlarının Frekans Grafiği</h4>
+                <h4 class="modal-title" id="kpssFrekansModalLabel">KPSS Puanlarının Frekans Grafiği</h4>
             </div>
             <div class="modal-body">
                 <?php
@@ -278,10 +278,10 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="bransSiralamasiEkleModalLabel">Mülakat Puanı Nasıl Eklenir</h4>
+                <h4 class="modal-title" id="bransSiralamasiEkleModalLabel">Nasıl Eklenir</h4>
             </div>
             <div class="modal-body">
-                <p>hazırlanan javascript kodunu kullanarak mülakat puanını ekleyebilirsiniz.</p>
+                <p>hazırlanan javascript kodunu kullanarak branş sıralamanızı ekleyebilirsiniz.</p>
                 <p>
                 <ol>
                     <li>İlk olarak <a target="_blank" href="https://github.com/sametatabasch/botebranssiralamasi/blob/master/siralamaBelirle.js">buraya</a>
