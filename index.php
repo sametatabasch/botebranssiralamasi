@@ -53,7 +53,7 @@
 
         </div>
         <div class="panel-body">
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-3 col-xs-6">
                 <!-- Girilen KPSS puan sayısı small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <!-- Max KPSS Puanı small box-->
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
                         <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste2017`")->fetch()['minPuan'], 3) ?></h3>
@@ -99,6 +99,22 @@
                     </div>
                     <a href="#" class="small-box-footer" data-toggle="modal" data-target=".kpssFrekans">
                         DetaylıBilgi <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>Destek</h3>
+
+                        <p>Play store da yayında olan Eğitsel oyunumu indirirerek bana destek olabilirsiniz.</p>
+                    </div>
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-star"></i>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=net.gencbilisim.buluttaMatematik"
+                       class="small-box-footer">
+                        Bulutta Matematik <i class="glyphicon glyphicon-circle-arrow-down"></i>
                     </a>
                 </div>
             </div>
@@ -121,7 +137,12 @@
                         <td><?= $row['puan'] ?></td>
                         <td><?= $row['brans'] ?></td>
                         <td><?= $row['sira'] ?></td>
-                        <td><?php $atamaDurumu = $row['atandiMi'] ? 'Atandı' : 'Atanmadı';
+                        <td><?php
+                            if (is_null($row['atandiMi']) || $row['atandiMi'] == 2) {
+                                $atamaDurumu = 'Güncelleme Gerekli';
+                            } else {
+                                $atamaDurumu = $row['atandiMi'] ? 'Atandı' : 'Atanmadı';
+                            }
                             echo $atamaDurumu ?></td>
                         <td><?= $row['tarih'] ?></td>
                     </tr>
