@@ -28,7 +28,7 @@ require_once "functions.php"; ?>
 $puan = floatval(strip_tags(trim(str_replace(',', '.', $_GET['p']))));
 $sira = intval(strip_tags(trim($_GET['s'])));
 $brans = strval(strip_tags(trim($_GET['b'])));
-$atandiMi = strip_tags(trim($_GET['2016K']));
+$atandiMi = boolval(strip_tags(trim($_GET['2016K'])));
 if ($sira != 0 || $puan != 0)
     listeyeEkle($puan, $sira,$brans,$atandiMi);
 ?>

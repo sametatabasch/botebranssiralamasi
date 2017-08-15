@@ -13,7 +13,8 @@ echo
         document.getElementById("SorgulaModel_YerlesenleriDahilEtme").checked = true;
         var brans = $("input:checked", "#listViewProgramlar")[0].labels[0].innerHTML.split(" - ")[1];
         for (x of document.getElementById("listViewProgramlar").querySelectorAll("input[type=\"checkbox\"]")) A.indexOf(x.id) > -1 ? x.checked = true : x.parentNode.remove();
-        $("#SorgulaModel_SecilenPuanTur_listbox").children("[data-offset-index=\"8\"]").trigger("click");
+        /*2017 sayfasında çalışmıyor
+        $("#SorgulaModel_SecilenPuanTur_listbox").children("[data-offset-index=\"8\"]").click();*/
         $("[value=\"Hesapla\"]").trigger("click");
         var sonuc = document.getElementById("divResultInner");
         var sayac = 0;
@@ -21,23 +22,29 @@ echo
         sonuc.addEventListener("DOMSubtreeModified", function () {
             sayac++;
             if (sayac >= 4) {
+                var sira = document.querySelector("span[data-bind=\"text : SiraNo\"]").innerHTML;
+                var puan = document.querySelector("span[data-bind=\"text : SiralamaYapilanPuan\"]").innerHTML;
+                var puanTuru = document.querySelector("span[data-bind=\"text : SiralamaYapilanPuanTuru\"]").innerHTML;
+
                 document.getElementsByTagName("body").item(0).innerHTML += \'<div id=\"window\">\' +
                     "<div class=\"msg\" style=\"text-align: center;font-size: 2em;\"></div><div class=\"clear\"></div><button class=\"yes button\" style=\"margin: 15px auto;display: block;\">Listeye Ekle</button>" +
                     "</div>";
 
-                var sira = document.querySelector("span[data-bind=\"text : SiraNo\"]").innerHTML;
-                var puan = document.querySelector("span[data-bind=\"text : SiralamaYapilanPuan\"]").innerHTML;
-
-                document.querySelector("#window .msg").innerHTML = "P10 Puan Türünde sıralamanız : " + sira + "</br>" +
+                document.querySelector("#window .msg").innerHTML = puanTuru + " Türünde sıralamanız : " + sira + "</br>" +
                     "Puanınızın isimsiz olarak kaydedilmesini ister misiniz? " +
                     "<input type=\'checkbox\' name=\'atandiMi\'> 2016 KPSS Puanım ile Atandım   ";
                 /*yes ve no butonları tıklama dinleyicisi ekle*/
-                $(".yes").click(function () {
-                    var atandiMi = document.querySelector(\'input[name=\"atandiMi\"]\').checked;
-                    console.log(atandiMi);
-                    $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2016K=" + atandiMi + "\" width=\"100%\" height=\"100%\">");
-                    $(this).hide();
-                });
+                if(puanTuru!==\'KPSSP10\'){
+                    $(".yes").remove();
+                    $("#window .msg").html("Lütfen sayfayı yenileyip P10 türü ile tekrar hesaplayınız.");
+                }else{
+                    $(".yes").click(function () {
+                        var atandiMi = document.querySelector(\'input[name=\"atandiMi\"]\').checked;
+                        console.log(atandiMi);
+                        $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2016K=" + atandiMi + "\" width=\"100%\" height=\"100%\">");
+                        $(this).hide();
+                    });
+                }
                 $("#window").kendoWindow({
                     width: "600px",
                     title: "Sıralamanız",
