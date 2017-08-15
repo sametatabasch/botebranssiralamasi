@@ -255,6 +255,9 @@
                             Branş Sıralaması sayfasına</a> giriş yapın.
                     </li>
                     <li>
+                        Açılan sayfada puan türünüzü P10 olarak seçin.
+                    </li>
+                    <li>
                         ÖSYM Branş Sıralaması sayfasındayken adres çubuğunu temizleyin ve <b>javascript:</b> yazıp hemen
                         peşine kopyaladığınız kodu yapıştırın ve enter a basın.
                     </li>
