@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 if (!ini_get('display_errors')) {
-	ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
 }
 require_once "veriler.php";
 /**
@@ -18,17 +18,20 @@ try {
 } catch (PDOException $e) {
     echo 'Hata: ' . $e->getMessage();
 }
-function listeyeEkle($puan,$sira,$brans){
+function listeyeEkle($puan, $sira, $brans, $_atandiMi)
+{
     global $db;
     $tarih = date('d.m.Y');
-    try{
-        $query = $db->prepare("REPLACE INTO liste2017 (puan,sira,brans,tarih) VALUES (:puan,:sira,:brans,:tarih)");
-        $query->bindParam(':puan',$puan);
-        $query->bindParam(':sira',$sira);
-        $query->bindParam(':brans',$brans);
-        $query->bindParam(':tarih',$tarih);
+    $atandiMi = $_atandiMi ? 1 : 0;
+    try {
+        $query = $db->prepare("REPLACE INTO liste2017 (puan,sira,brans,tarih,atandiMi) VALUES (:puan,:sira,:brans,:tarih,:atandiMi)");
+        $query->bindParam(':puan', $puan);
+        $query->bindParam(':sira', $sira);
+        $query->bindParam(':brans', $brans);
+        $query->bindParam(':tarih', $tarih);
+        $query->bindParam(':atandiMi', $atandiMi);
         $query->execute();
-    } catch(PDOException $e){
-        die( 'Hata: '.$e->getMessage());
+    } catch (PDOException $e) {
+        die('Hata: ' . $e->getMessage());
     }
 }

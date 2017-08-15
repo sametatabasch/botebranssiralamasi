@@ -29,10 +29,13 @@ echo
                 var puan = document.querySelector("span[data-bind=\"text : SiralamaYapilanPuan\"]").innerHTML;
 
                 document.querySelector("#window .msg").innerHTML = "P10 Puan Türünde sıralamanız : " + sira + "</br>" +
-                    "Puanınızın isimsiz olarak kaydedilmesini ister misiniz? ";
+                    "Puanınızın isimsiz olarak kaydedilmesini ister misiniz? " +
+                    "<input type=\'checkbox\' name=\'atandiMi\'> 2016 KPSS Puanım ile Atandım   ";
                 /*yes ve no butonları tıklama dinleyicisi ekle*/
                 $(".yes").click(function () {
-                    $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "\" width=\"100%\" height=\"100%\">");
+                    var atandiMi = document.querySelector(\'input[name=\"atandiMi\"]\').checked;
+                    console.log(atandiMi);
+                    $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2016K=" + atandiMi + "\" width=\"100%\" height=\"100%\">");
                     $(this).hide();
                 });
                 $("#window").kendoWindow({

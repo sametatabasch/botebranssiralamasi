@@ -74,7 +74,7 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste2017`")->fetch()['maxPuan'],3) ?></h3>
+                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste2017`")->fetch()['maxPuan'], 3) ?></h3>
 
                         <p>Girilen en yüksek KPSS puanı</p>
                     </div>
@@ -90,7 +90,7 @@
             <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste2017`")->fetch()['minPuan'],3) ?></h3>
+                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste2017`")->fetch()['minPuan'], 3) ?></h3>
 
                         <p>Girilen en düşük KPSS puanı</p>
                     </div>
@@ -107,7 +107,9 @@
                 <thead>
                 <th>Sıra</th>
                 <th>Puan</th>
+                <th>Branş</th>
                 <th>Genel Sıralama</th>
+                <th> 2016Kpss İle Atandı</th>
                 <th>Güncelleme Tarihi</th>
                 </thead>
                 <tbody>
@@ -118,6 +120,9 @@
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
                         <td><?= $row['brans'] ?></td>
+                        <td><?= $row['sira'] ?></td>
+                        <td><?php $atamaDurumu = $row['atandiMi'] ? 'Atandı' : 'Atanmadı';
+                            echo $atamaDurumu ?></td>
                         <td><?= $row['tarih'] ?></td>
                     </tr>
                     <?php $s++; endforeach; ?>
@@ -207,7 +212,8 @@
     </div>
 </div>
 <!-- Branş Sıralaması ekle modal-->
-<div class="modal fade  bransSiralamasiEkle" tabindex="-1" role="dialog" aria-labelledby="bransSiralamasiEkleModalLabel">
+<div class="modal fade  bransSiralamasiEkle" tabindex="-1" role="dialog"
+     aria-labelledby="bransSiralamasiEkleModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -219,11 +225,13 @@
                 <p>Hazırlanan javascript kodunu kullanarak branş sıralamanızı ekleyebilirsiniz.</p>
                 <p>
                 <ol>
-                    <li>İlk olarak <a target="_blank" href="https://github.com/sametatabasch/botebranssiralamasi/blob/master/siralamaBelirle.js">buraya</a>
+                    <li>İlk olarak <a target="_blank"
+                                      href="https://github.com/sametatabasch/botebranssiralamasi/blob/master/siralamaBelirle.js">buraya</a>
                         tıklayarak açılan sayfadaki kodların tamamını kopyalayın
                     </li>
                     <li>
-                        Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2017/1/BransBazindaSiralama">ÖSYM Branş Sıralaması sayfasına</a> giriş yapın.
+                        Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2017/1/BransBazindaSiralama">ÖSYM
+                            Branş Sıralaması sayfasına</a> giriş yapın.
                     </li>
                     <li>
                         ÖSYM Branş Sıralaması sayfasındayken adres çubuğunu temizleyin ve <b>javascript:</b> yazıp hemen
