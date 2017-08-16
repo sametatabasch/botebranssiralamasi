@@ -39,7 +39,7 @@ echo
                     $("#window .msg").html("Lütfen sayfayı yenileyip P10 türü ile tekrar hesaplayınız.");
                 }else{
                     $(".yes").click(function () {
-                        var atandiMi = document.querySelector(\'input[name=\"atandiMi\"]\').checked;
+                        if(document.querySelector(\'input[name="atandiMi"]\').checked){var atandiMi=1}else{var atandiMi=0}
                         console.log(atandiMi);
                         $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2016K=" + atandiMi + "\" width=\"100%\" height=\"100%\">");
                         $(this).hide();
