@@ -108,17 +108,18 @@
                 <thead>
                 <th>Sıra</th>
                 <th>Puan</th>
+		<th>Branş</th>
                 <th>Genel Sıralama</th>
                 <th>Güncelleme Tarihi</th>
                 </thead>
                 <tbody>
-
                 <?php $s = 1;
                 foreach ($db->query("SELECT puan,sira,brans,tarih FROM liste ORDER BY sira ASC") as $row): ?>
                     <tr>
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
                         <td><?= $row['brans'] ?></td>
+			<td><?= $row['sira'] ?></td>
                         <td><?= $row['tarih'] ?></td>
                     </tr>
                     <?php $s++; endforeach; ?>
