@@ -213,10 +213,21 @@
                 $labels .= "]";
                 $data .= "]";
                 ?>
-                <div id="container" style="width:100%; height:400px;"></div>
+                <div id="container" >
+			2016 KPSS puanı ile
+			<div class="btn-group">
+	        		<div class="btn btn-default">ataması yapılmış <span class="badge">
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=1")->fetch()['toplam'] ?></span></div>
+			        <div class="btn btn-default">ataması yapılmamış <span class="badge">
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=0")->fetch()['toplam'] ?></span></div>
+			        <div class="btn btn-default">atanma durumunu güncellemesi gereken <span class="badge">
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=2")->fetch()['toplam'] ?></span></div>
+			 </div> kişi var.
+			<div id="grafik" style="width:100%; height:400px;"></div>
+		</div>
                 <script>
                     $(function () {
-                        var myChart = Highcharts.chart('container', {
+                        var myChart = Highcharts.chart('grafik', {
                             chart: {
                                 type: 'line'
                             },
