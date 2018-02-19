@@ -3,9 +3,11 @@
 <html>
 <head>
     <title>2017 - BÖTE Branş Sıralaması</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui viewport-fit=cover">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+
     <!-- Optional theme -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <script src="js/jquery-1.12.3.js"></script>
@@ -43,6 +45,14 @@
     <script type="text/javascript" src="js/jquery.inputmask.bundle.min.js"></script>
     <!--Highchart  -->
     <script src="http://code.highcharts.com/highcharts.js"></script>
+    <!-- Admatic interstitial 320x480 Ad Code START -->
+    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area" data-ad-network="167662869748" data-ad-sid="206" data-ad-width="320" data-ad-height="480"></ins>
+    <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
+    <!-- Admatic interstitial 320x480 Ad Code END -->
+    <!-- Admatic interstitial 800x600 Ad Code START -->
+    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area" data-ad-network="167662869748" data-ad-sid="209" data-ad-width="800" data-ad-height="600"></ins>
+    <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
+    <!-- Admatic interstitial 800x600 Ad Code END -->
 </head>
 <body>
 <div class="container">
@@ -290,5 +300,9 @@
         $(":input").inputmask();
     });
 </script>
+<!-- Admatic Scroll 300x250 Ad Code START -->
+<ins data-publisher="adm-pub-139630885245" data-ad-type="Scroll" class="adm-ads-area" data-ad-network="167662869748" data-ad-sid="304" data-ad-width="300" data-ad-height="250"></ins>
+<script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
+<!-- Admatic Scroll 300x250 Ad Code END -->
 </body>
 </html>
