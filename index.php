@@ -267,16 +267,16 @@
                 <p>Hazırlanan javascript kodunu kullanarak branş sıralamanızı ekleyebilirsiniz.</p>
                 <p>
                 <ol>
-                    <li>İlk olarak <a target="_blank"
-                                      href="https://github.com/sametatabasch/botebranssiralamasi/blob/master/siralamaBelirle.js">buraya</a>
-                        tıklayarak açılan sayfadaki kodların tamamını kopyalayın
+                    <li>İlk olarak aşağıdaki kodların tamamını kopyalayın
+  <pre><code>(function () {
+    var s = document.createElement("script");
+    s.src = "https://botesiralamasi.gencbilisim.net/addScript.php";
+    document.body.appendChild(s);
+})();</code></pre>
                     </li>
                     <li>
                         Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2017/1/BransBazindaSiralama">ÖSYM
                             Branş Sıralaması sayfasına</a> giriş yapın.
-                    </li>
-                    <li>
-                        Açılan sayfada puan türünüzü P10 olarak seçin.
                     </li>
                     <li>
                         ÖSYM Branş Sıralaması sayfasındayken adres çubuğunu temizleyin ve <b>javascript:</b> yazıp hemen
