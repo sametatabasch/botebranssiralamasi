@@ -22,9 +22,6 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.16/sorting/datetime-moment.js"></script>
 
-
-    <!-- Latest compiled and minified JavaScript -->
-
     <meta name="author" content="Samet ATABAŞ">
     <meta charset="utf-8"/>
     <!-- Google İzleme kodu -->
@@ -48,16 +45,7 @@
     <script type="text/javascript" src="js/jquery.inputmask.bundle.min.js"></script>
     <!--Highchart  -->
     <script src="http://code.highcharts.com/highcharts.js"></script>
-    <!-- Admatic interstitial 320x480 Ad Code START -->
-    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area"
-         data-ad-network="167662869748" data-ad-sid="206" data-ad-width="320" data-ad-height="480"></ins>
-    <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
-    <!-- Admatic interstitial 320x480 Ad Code END -->
-    <!-- Admatic interstitial 800x600 Ad Code START -->
-    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area"
-         data-ad-network="167662869748" data-ad-sid="209" data-ad-width="800" data-ad-height="600"></ins>
-    <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
-    <!-- Admatic interstitial 800x600 Ad Code END -->
+
 </head>
 <body>
 <div class="container">
@@ -223,6 +211,16 @@
         $(":input").inputmask();
     });
 </script>
+<!-- Admatic interstitial 320x480 Ad Code START -->
+<ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area"
+     data-ad-network="167662869748" data-ad-sid="206" data-ad-width="320" data-ad-height="480"></ins>
+<script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
+<!-- Admatic interstitial 320x480 Ad Code END -->
+<!-- Admatic interstitial 800x600 Ad Code START -->
+<ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area"
+     data-ad-network="167662869748" data-ad-sid="209" data-ad-width="800" data-ad-height="600"></ins>
+<script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
+<!-- Admatic interstitial 800x600 Ad Code END -->
 <!-- Admatic Scroll 300x250 Ad Code START -->
 <ins data-publisher="adm-pub-139630885245" data-ad-type="Scroll" class="adm-ads-area" data-ad-network="167662869748"
      data-ad-sid="304" data-ad-width="300" data-ad-height="250"></ins>
