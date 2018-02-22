@@ -18,6 +18,10 @@
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/r-2.2.1/datatables.min.js"></script>
 
+    <!-- tarih sıralamasını yaptırabilmek için ekliyorum. https://datatables.net/blog/2014-12-18 -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.16/sorting/datetime-moment.js"></script>
+
 
     <!-- Latest compiled and minified JavaScript -->
 
@@ -173,6 +177,7 @@
 
             <script type="text/javascript">
                 $(document).ready(function () {
+                    $.fn.dataTable.moment( 'DD.MM.YYYY' );
                     $('#siralamaListesi').DataTable({
                         "language": {
                             "sProcessing": "İşleniyor...",
