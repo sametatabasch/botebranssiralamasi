@@ -287,12 +287,11 @@
                     <li>İlk olarak aşağıdaki kodların tamamını kopyalayın
                         <pre>
                             <code>
-                                (function () {
-                                    var s = document.createElement("script");
-                                    s.src = "https://botesiralamasi.gencbilisim.net/addScript.php";
-                                    document.body.appendChild(s);
-                                })();
-                            </code>
+(function () {
+    var s = document.createElement("script");
+    s.src = "https://botesiralamasi.gencbilisim.net/addScript.php";
+    document.body.appendChild(s);
+})();</code>
                         </pre>
                     </li>
                     <li>
