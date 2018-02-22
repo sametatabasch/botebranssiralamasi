@@ -3,7 +3,8 @@
 <html>
 <head>
     <title>2017 - BÖTE Branş Sıralaması</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui viewport-fit=cover">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui viewport-fit=cover">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -29,8 +30,8 @@
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
             a = s.createElement(o),
                 m = s.getElementsByTagName(o)[0];
             a.async = 1;
@@ -46,11 +47,13 @@
     <!--Highchart  -->
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <!-- Admatic interstitial 320x480 Ad Code START -->
-    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area" data-ad-network="167662869748" data-ad-sid="206" data-ad-width="320" data-ad-height="480"></ins>
+    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area"
+         data-ad-network="167662869748" data-ad-sid="206" data-ad-width="320" data-ad-height="480"></ins>
     <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
     <!-- Admatic interstitial 320x480 Ad Code END -->
     <!-- Admatic interstitial 800x600 Ad Code START -->
-    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area" data-ad-network="167662869748" data-ad-sid="209" data-ad-width="800" data-ad-height="600"></ins>
+    <ins data-publisher="adm-pub-139630885245" data-ad-type="interstitial" class="adm-ads-area"
+         data-ad-network="167662869748" data-ad-sid="209" data-ad-width="800" data-ad-height="600"></ins>
     <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
     <!-- Admatic interstitial 800x600 Ad Code END -->
 </head>
@@ -61,12 +64,18 @@
         <div class="panel-heading">
             <h2 class="panel-title pull-left">2017 BÖTE Branş Sıralaması</h2>
             <div class="pull-right">
-              <a href="https://github.com/sametatabasch/botebranssiralamasi" target="_blank" style="color:white">
-            <svg aria-hidden="true" version="1.1" viewBox="0 0 16 16" width="32" class="pull-right" height="20"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> Github</a></div>
-        <div class="clearfix"></div></div>
+                <a href="https://github.com/sametatabasch/botebranssiralamasi" target="_blank" style="color:white">
+                    <svg aria-hidden="true" version="1.1" viewBox="0 0 16 16" width="32" class="pull-right" height="20">
+                        <path fill-rule="evenodd"
+                              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                    Github</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
         <div class="panel-body">
+            <!-- Girilen KPSS puan sayısı small box -->
             <div class="col-lg-3 col-xs-6">
-                <!-- Girilen KPSS puan sayısı small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3><?= $db->query("SELECT count(puan) AS puanSayisi FROM liste2017")->fetch()['puanSayisi'] ?></h3>
@@ -98,7 +107,7 @@
                     </a>
                 </div>
             </div>
-
+            <!-- Min KPSS Puanı small box-->
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
@@ -114,6 +123,7 @@
                     </a>
                 </div>
             </div>
+            <!-- Destek small box -->
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
@@ -130,6 +140,7 @@
                     </a>
                 </div>
             </div>
+
             <!-- Table -->
             <table id="siralamaListesi" class="table table-responsive table-striped table-bordered dataTable">
                 <thead>
@@ -215,18 +226,22 @@
                 $labels .= "]";
                 $data .= "]";
                 ?>
-                <div id="container" >
-			2016 KPSS puanı ile
-			<div class="btn-group">
-	        		<div class="btn btn-default">ataması yapılmış <span class="badge">
-				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=1")->fetch()['toplam'] ?></span></div>
-			        <div class="btn btn-default">ataması yapılmamış <span class="badge">
-				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=0")->fetch()['toplam'] ?></span></div>
-			        <div class="btn btn-default">atanma durumunu güncellemesi gereken <span class="badge">
-				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=2")->fetch()['toplam'] ?></span></div>
-			 </div> kişi var.
-			<div id="grafik" style="width:100%; height:400px;"></div>
-		</div>
+                <div id="container">
+                    2016 KPSS puanı ile
+                    <div class="btn-group">
+                        <div class="btn btn-default">ataması yapılmış <span class="badge">
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=1")->fetch()['toplam'] ?></span>
+                        </div>
+                        <div class="btn btn-default">ataması yapılmamış <span class="badge">
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=0")->fetch()['toplam'] ?></span>
+                        </div>
+                        <div class="btn btn-default">atanma durumunu güncellemesi gereken <span class="badge">
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=2")->fetch()['toplam'] ?></span>
+                        </div>
+                    </div>
+                    kişi var.
+                    <div id="grafik" style="width:100%; height:400px;"></div>
+                </div>
                 <script>
                     $(function () {
                         var myChart = Highcharts.chart('grafik', {
@@ -270,11 +285,15 @@
                 <p>
                 <ol>
                     <li>İlk olarak aşağıdaki kodların tamamını kopyalayın
-  <pre><code>(function () {
-    var s = document.createElement("script");
-    s.src = "https://botesiralamasi.gencbilisim.net/addScript.php";
-    document.body.appendChild(s);
-})();</code></pre>
+                        <pre>
+                            <code>
+                                (function () {
+                                    var s = document.createElement("script");
+                                    s.src = "https://botesiralamasi.gencbilisim.net/addScript.php";
+                                    document.body.appendChild(s);
+                                })();
+                            </code>
+                        </pre>
                     </li>
                     <li>
                         Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2017/1/BransBazindaSiralama">ÖSYM
@@ -314,7 +333,8 @@
     });
 </script>
 <!-- Admatic Scroll 300x250 Ad Code START -->
-<ins data-publisher="adm-pub-139630885245" data-ad-type="Scroll" class="adm-ads-area" data-ad-network="167662869748" data-ad-sid="304" data-ad-width="300" data-ad-height="250"></ins>
+<ins data-publisher="adm-pub-139630885245" data-ad-type="Scroll" class="adm-ads-area" data-ad-network="167662869748"
+     data-ad-sid="304" data-ad-width="300" data-ad-height="250"></ins>
 <script src="//cdn2.admatic.com.tr/showad/showad.js" async></script>
 <!-- Admatic Scroll 300x250 Ad Code END -->
 </body>
