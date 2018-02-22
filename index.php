@@ -14,11 +14,9 @@
     <script src="js/jquery-1.12.3.js"></script>
 
     <!-- Datatable -->
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.12/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/r-2.2.1/datatables.min.css"/>
 
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.12/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jqc-1.12.3/dt-1.10.16/r-2.2.1/datatables.min.js"></script>
 
 
     <!-- Latest compiled and minified JavaScript -->
