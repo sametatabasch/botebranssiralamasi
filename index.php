@@ -139,12 +139,13 @@
                 <th>Branş</th>
                 <th>Genel Sıralama</th>
                 <th> 2016Kpss İle Atandı</th>
+                <th>Güncel Sıra</th>
                 <th>Güncelleme Tarihi</th>
                 </thead>
                 <tbody>
 
                 <?php $s = 1;
-                foreach ($db->query("SELECT puan,sira,brans,tarih,atandiMi FROM liste2017 ORDER BY sira ASC") as $row): ?>
+                foreach ($db->query("SELECT *, (t1.sira - (SELECT COUNT(id) FROM liste2017 AS t2 WHERE atandiMi = 1 AND t2.sira < t1.sira)) AS guncelSira FROM liste2017 AS t1 ORDER BY sira ASC") as $row): ?>
                     <tr>
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
@@ -157,6 +158,7 @@
                                 $atamaDurumu = $row['atandiMi'] ? 'Atandı' : 'Atanmadı';
                             }
                             echo $atamaDurumu ?></td>
+                        <td><?=$row['guncelSira']?></td>
                         <td><?= $row['tarih'] ?></td>
                     </tr>
                     <?php $s++; endforeach; ?>
