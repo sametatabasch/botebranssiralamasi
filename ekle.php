@@ -25,15 +25,41 @@ require_once "functions.php"; ?>
 </head>
 <body>
 <?php
+$branslar = [
+    "BİLGİSAYAR VE ÖĞRETİM TEKNOLOJİLERİ ÖĞRETMENLİĞİ",
+    "BİLGİ TEKNOLOJİLERİ", "BİLGİSAYAR BİLİMİ / BİLGİSAYAR BİLİMLERİ",
+    "BİLGİSAYAR BİLİMİ VE MÜHENDİSLİĞİ / BİLGİSAYAR BİLİMLERİ MÜHENDİSLİĞİ",
+    "BİLGİSAYAR MÜHENDİSLİĞİ",
+    "BİLGİSAYAR ÖĞRETMENLİĞİ",
+    "BİLGİSAYAR SİSTEMLERİ ÖĞRETMENLİĞİ",
+    "BİLGİSAYAR TEKNOLOJİSİ BÖLÜMÜ",
+    "BİLGİSAYAR TEKNOLOJİSİ VE BİLİŞİM SİSTEMLERİ",
+    "BİLGİSAYAR VE KONTROL ÖĞRETMENLİĞİ",
+    "BİLİŞİM SİSTEMLERİ MÜHENDİSLİĞİ",
+    "BİLİŞİM SİSTEMLERİ VE TEKNOLOJİLERİ",
+    "ELEKTRONİK VE BİLGİSAYAR ÖĞRETMENLİĞİ",
+    "İSTATİSTİK VE BİLGİSAYAR BİLİMLERİ",
+    "KONTROL VE BİLGİSAYAR MÜHENDİSLİĞİ",
+    "MATEMATİK VE BİLGİSAYAR / MATEMATİK-BİLGİSAYAR",
+    "YAZILIM MÜHENDİSLİĞİ"
+];
+
 $puan = floatval(strip_tags(trim(str_replace(',', '.', $_GET['p']))));
 $sira = intval(strip_tags(trim($_GET['s'])));
 $brans = strval(strip_tags(trim($_GET['b'])));
 $atandiMi = boolval(trim($_GET['2016K']));
-if ($sira != 0 || $puan != 0)
-    listeyeEkle($puan, $sira,$brans,$atandiMi);
+if ($sira != 0 && ($puan > 0 && $puan <= 100) && in_array($brans, $branslar)) {
+    listeyeEkle($puan, $sira, $brans, $atandiMi);
+    echo '
+    <h3 class=""> Kayıt edilen puan ve sıralaması = ' . $puan . ' -> ' . $sira . '</h3>
+    <a class="btn btn-default center-block" href="/" target="_blank">Listeyi Gör</a>';
+} else {
+    echo '
+    <h3 class=""> Hatalı Giriş</h3>
+    <a class="btn btn-default center-block" href="/" target="_blank">Listeyi Gör</a>';
+}
 ?>
 
-<h3 class=""> Kayıt edilen puan ve sıralaması = <?= $puan ?> -> <?= $sira ?></h3>
-<a class="btn btn-default center-block" href="/" target="_blank">Listeyi Gör</a>
+
 </body>
 </html>
