@@ -192,8 +192,8 @@
             </script>
         </div>
         <div class="panel-footer">
-            <a class="pull-left" href="/2016">2016 Listesi</a>
-            <a class="pull-left" href="/2017">2017 Listesi</a>
+            <a class="pull-left footer-link" href="/2016">2016 Listesi</a>
+            <a class="pull-left footer-link" href="/2017">2017 Listesi</a>
             <a class="pull-right" href="http://gencbilisim.net">Samet Atabaş - GençBilişim.net</a>
             <div class="clearfix"></div>
         </div>

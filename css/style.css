@@ -95,6 +95,10 @@
     font-size: 60px;
 }
 
+.footer-link{
+    margin: 0 5px;
+}
+
 @media (max-width: 767px) {
     .small-box {
         text-align: center;
