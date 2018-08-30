@@ -18,7 +18,7 @@
                 <?php
                 $labels = "[";
                 $data = "[";
-                foreach ($db->query("SELECT round(puan)AS kpss, count(round(puan)) AS frekans  FROM `liste2017` GROUP BY kpss ORDER BY kpss") as $row) {
+                foreach ($db->query("SELECT round(puan)AS kpss, count(round(puan)) AS frekans  FROM `liste2018` GROUP BY kpss ORDER BY kpss") as $row) {
                     $labels .= '"' . $row['kpss'] . '",';
                     $data .= $row['frekans'] . ",";
                 }
@@ -26,16 +26,16 @@
                 $data .= "]";
                 ?>
                 <div id="container">
-                    2016 KPSS puanı ile
+                    2017 KPSS puanı ile
                     <div class="btn-group">
                         <div class="btn btn-default">ataması yapılmış <span class="badge">
-				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=1")->fetch()['toplam'] ?></span>
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2018 WHERE atandiMi=1")->fetch()['toplam'] ?></span>
                         </div>
                         <div class="btn btn-default">ataması yapılmamış <span class="badge">
-				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=0")->fetch()['toplam'] ?></span>
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2018 WHERE atandiMi=0")->fetch()['toplam'] ?></span>
                         </div>
                         <div class="btn btn-default">atanma durumunu güncellemesi gereken <span class="badge">
-				<?= $db->query("SELECT count(puan) AS toplam FROM liste2017 WHERE atandiMi=2")->fetch()['toplam'] ?></span>
+				<?= $db->query("SELECT count(puan) AS toplam FROM liste2018 WHERE atandiMi=2")->fetch()['toplam'] ?></span>
                         </div>
                     </div>
                     kişi var.

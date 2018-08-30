@@ -8,7 +8,7 @@
 
 echo
 '(function () {
-    if (location.pathname == "/KPSS1/2017/1/BransBazindaSiralama") {
+    if (location.pathname == "/KPSS1/2018/1/BransBazindaSiralama") {
         /*Bilişim teknolojileri branşını tercih edebilecek branşlar*/
         var A = "2712,2547,2399,1995,1996,1997,1999,2000,2365,2001,2412,2087,2545,2118,2396,1998,2529".split(",");
         var KabulEdilenBranslar = [
@@ -59,7 +59,7 @@ echo
                     /* ÖSYM sayfasında hazır bulunan  Kendowindow eklentisi ile gösterilecek mesajın içeriğinin body içerisine eklenmesi*/
                     document.querySelector("#window .msg").innerHTML = puanTuru + " Türünde sıralamanız : " + sira + "</br>" +
                         "Puanınızın isimsiz olarak kaydedilmesini ister misiniz? " +
-                        "<input type=\"checkbox\" name=\"atandiMi\"> 2016 KPSS Puanım ile Atandım   ";
+                        "<input type=\"checkbox\" name=\"atandiMi\"> 2017 KPSS Puanım ile Atandım   ";
                     /*P10 dışında bir branş seçildiyse uyarı ver ve listeye ekle butonunu sil.*/
                     if (puanTuru !== \'KPSSP10\') {
                         $(".yes").remove();
@@ -74,7 +74,7 @@ echo
                                 atandiMi = 0
                             }
                             /*listeye ekleme işlemini yapmak için iframe içerisinde ekle.php sayfası çağırılıyor*/
-                            $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2016K=" + atandiMi + "\" width=\"100%\" height=\"100%\">");
+                            $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2017K=" + atandiMi + "\" width=\"100%\" height=\"100%\">");
                             $(this).hide();
                         });
                     }
@@ -98,7 +98,7 @@ echo
         }
 
     } else {
-        alert("Bu kod sadece 2017 Kpss için kullanılır.")
+        alert("Bu kod sadece 2018 Kpss için kullanılır.")
     }
 })();
 ';

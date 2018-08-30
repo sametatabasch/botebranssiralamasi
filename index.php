@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>2017 - BÖTE Branş Sıralaması</title>
+    <title>2018 - BÖTE Branş Sıralaması</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui viewport-fit=cover">
     <!-- Latest compiled and minified CSS -->
@@ -52,7 +52,7 @@
     <div class="panel panel-primary">
         <!-- Default panel contents -->
         <div class="panel-heading">
-            <h2 class="panel-title pull-left">2017 BÖTE Branş Sıralaması</h2>
+            <h2 class="panel-title pull-left">2018 BÖTE Branş Sıralaması</h2>
             <div class="pull-right">
                 <a href="https://github.com/sametatabasch/botebranssiralamasi" target="_blank" style="color:white">
                     <svg aria-hidden="true" version="1.1" viewBox="0 0 16 16" width="32" class="pull-right" height="20">
@@ -68,7 +68,7 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3><?= $db->query("SELECT count(puan) AS puanSayisi FROM liste2017")->fetch()['puanSayisi'] ?></h3>
+                        <h3><?= $db->query("SELECT count(puan) AS puanSayisi FROM liste2018")->fetch()['puanSayisi'] ?></h3>
 
                         <p>KPSS puanı girildi</p>
                     </div>
@@ -85,7 +85,7 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste2017`")->fetch()['maxPuan'], 3) ?></h3>
+                        <h3><?= round($db->query("SELECT MAX(puan) AS maxPuan FROM `liste2018`")->fetch()['maxPuan'], 3) ?></h3>
 
                         <p>Girilen en yüksek KPSS puanı</p>
                     </div>
@@ -101,7 +101,7 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste2017`")->fetch()['minPuan'], 3) ?></h3>
+                        <h3><?= round($db->query("SELECT MIN(puan) AS minPuan FROM `liste2018`")->fetch()['minPuan'], 3) ?></h3>
 
                         <p>Girilen en düşük KPSS puanı</p>
                     </div>
@@ -109,7 +109,7 @@
                         <i class="glyphicon glyphicon-stats"></i>
                     </div>
                     <a href="#" class="small-box-footer" data-toggle="modal" data-target=".kpssFrekans">
-                        DetaylıBilgi <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        Detaylı Bilgi <i class="glyphicon glyphicon-circle-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -138,14 +138,14 @@
                 <th>Puan</th>
                 <th>Branş</th>
                 <th>Genel Sıralama</th>
-                <th> 2016Kpss İle Atandı</th>
+                <th>2017 Kpss İle Atandı</th>
                 <th>Güncel Sıra</th>
                 <th>Güncelleme Tarihi</th>
                 </thead>
                 <tbody>
 
                 <?php $s = 1;
-                foreach ($db->query("SELECT *, (t1.sira - (SELECT COUNT(id) FROM liste2017 AS t2 WHERE atandiMi = 1 AND t2.sira < t1.sira)) AS guncelSira FROM liste2017 AS t1 ORDER BY sira ASC") as $row): ?>
+                foreach ($db->query("SELECT *, (t1.sira - (SELECT COUNT(id) FROM liste2018 AS t2 WHERE atandiMi = 1 AND t2.sira < t1.sira)) AS guncelSira FROM liste2018 AS t1 ORDER BY sira ASC") as $row): ?>
                     <tr>
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
@@ -193,6 +193,7 @@
         </div>
         <div class="panel-footer">
             <a class="pull-left" href="/2016">2016 Listesi</a>
+            <a class="pull-left" href="/2017">2017 Listesi</a>
             <a class="pull-right" href="http://gencbilisim.net">Samet Atabaş - GençBilişim.net</a>
             <div class="clearfix"></div>
         </div>

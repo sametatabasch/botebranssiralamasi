@@ -31,7 +31,7 @@
                         </pre>
                     </li>
                     <li>
-                        Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2017/1/BransBazindaSiralama">ÖSYM
+                        Sonrasında <a target="_blank" href="https://ais.osym.gov.tr/KPSS1/2018/1/BransBazindaSiralama">ÖSYM
                             Branş Sıralaması sayfasına</a> giriş yapın.
                     </li>
                     <li>
