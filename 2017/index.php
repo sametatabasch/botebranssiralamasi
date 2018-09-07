@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <script src="js/jquery-1.12.3.js"></script>
 
     <!-- Datatable -->
@@ -191,11 +190,21 @@
                 });
             </script>
         </div>
-        <div class="panel-footer">
-            <a class="pull-left" href="/2016">2016 Listesi</a>
-            <a class="pull-right" href="http://gencbilisim.net">Samet Atabaş - GençBilişim.net</a>
-            <div class="clearfix"></div>
-        </div>
+            <nav class="panel-footer">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">Listeler</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span class="caret"></span> <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/">2018 Listesi</a></li>
+                        <li><a href="/2017">2017 Listesi</a></li>
+                        <li><a href="/2016">2016 Listesi</a></li>
+
+                    </ul>
+                </div>
+                <a class="pull-right" href="http://gencbilisim.net" style="margin-top: 10px;">Samet ATABAŞ - GençBilişim.net</a>
+            </nav>
     </div>
 </div>
 
