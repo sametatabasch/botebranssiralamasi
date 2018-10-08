@@ -53,7 +53,7 @@ echo
                     var puan = document.querySelector("span[data-bind=\"text : SiralamaYapilanPuan\"]").innerHTML;
                     var puanTuru = document.querySelector("span[data-bind=\"text : SiralamaYapilanPuanTuru\"]").innerHTML;
                     /* ÖSYM sayfasında hazır bulunan  Kendowindow eklentisi ile gösterilecek mesajın şablonunun body içerisine eklenmesi*/
-                    document.getElementsByTagName("body").item(0).innerHTML += \'<div id=\"window\">\' +
+                    document.getElementsByTagName("body").item(0).innerHTML += "<div id=\"window\">" +
                         "<div class=\"msg\" style=\"text-align: center;font-size: 2em;\"></div><div class=\"clear\"></div><button class=\"yes button\" style=\"margin: 15px auto;display: block;\">Listeye Ekle</button>" +
                         "</div>";
                     /* ÖSYM sayfasında hazır bulunan  Kendowindow eklentisi ile gösterilecek mesajın içeriğinin body içerisine eklenmesi*/
@@ -74,7 +74,7 @@ echo
                             } else {
                                 atandiMi = 0
                             }
-                            // todo kontroller yapılmalı
+                            /* todo kontroller yapılmalı*/
                             var puan2017 = document.querySelector("input[name=\"puan2017\"]").innerHTML;
                             /*listeye ekleme işlemini yapmak için iframe içerisinde ekle.php sayfası çağırılıyor*/
                             $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2017K=" + atandiMi + "&p2017=" + puan2017 + "\" width=\"100%\" height=\"100%\">");
