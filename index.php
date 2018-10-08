@@ -141,7 +141,7 @@
                 <th>Branş</th>
                 <th>Genel Sıralama</th>
                 <th>2017 Kpss İle Atandı</th>
-                <th>Güncel Sıra</th>
+                <th data-toggle="tooltip" data-placement="bottom" title="2017 Puanı ile atanmış olan kişiler sıralamadan düştükten sonra oluşan sıralamayı gösterir">Güncel Sıra</th>
                 <th>Güncelleme Tarihi</th>
                 </thead>
                 <tbody>
@@ -157,7 +157,7 @@
                             if (is_null($row['atandiMi']) || $row['atandiMi'] == 2) {
                                 $atamaDurumu = 'Güncelleme Gerekli';
                             } else {
-                                $atamaDurumu = $row['atandiMi'] ? 'Atandı' : 'Atanmadı';
+                                $atamaDurumu = $row['atandiMi'] ? 'Evet' : 'Hayır';
                             }
                             echo $atamaDurumu ?></td>
                         <td><?= $row['guncelSira'] ?></td>
