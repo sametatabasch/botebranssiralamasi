@@ -59,7 +59,8 @@ echo
                     /* ÖSYM sayfasında hazır bulunan  Kendowindow eklentisi ile gösterilecek mesajın içeriğinin body içerisine eklenmesi*/
                     document.querySelector("#window .msg").innerHTML = puanTuru + " Türünde sıralamanız : " + sira + "</br>" +
                         "Puanınızın isimsiz olarak kaydedilmesini ister misiniz? " +
-                        "<input type=\"checkbox\" name=\"atandiMi\"> 2017 KPSS Puanım ile Atandım   ";
+                        "<input type=\"checkbox\" name=\"atandiMi\"> 2017 KPSS Puanım ile Atandım   "+
+                        "<input type=\"number\" name=\"puan2017\" max="100" min="50">";
                     /*P10 dışında bir branş seçildiyse uyarı ver ve listeye ekle butonunu sil.*/
                     if (puanTuru !== \'KPSSP10\') {
                         $(".yes").remove();
@@ -73,8 +74,10 @@ echo
                             } else {
                                 atandiMi = 0
                             }
+                            // todo kontroller yapılmalı
+                            var puan2017 = document.querySelector("input[name=\"puan2017\"]").innerHTML;
                             /*listeye ekleme işlemini yapmak için iframe içerisinde ekle.php sayfası çağırılıyor*/
-                            $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2017K=" + atandiMi + "\" width=\"100%\" height=\"100%\">");
+                            $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2017K=" + atandiMi + "&p2017=" + puan2017 + "\" width=\"100%\" height=\"100%\">");
                             $(this).hide();
                         });
                     }
