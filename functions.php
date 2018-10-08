@@ -24,7 +24,7 @@ function listeyeEkle($puan, $puan2017, $sira, $brans, $_atandiMi)
     $tarih = date('d.m.Y');
     $atandiMi = $_atandiMi === true ? 1 : 0;
     try {
-        $query = $db->prepare("REPLACE INTO liste2018 (puan,puan2017,sira,brans,tarih,atandiMi) VALUES (:puan,:sira,:brans,:tarih,:atandiMi)");
+        $query = $db->prepare("REPLACE INTO liste2018 (puan,puan2017,sira,brans,tarih,atandiMi) VALUES (:puan,:puan2017,:sira,:brans,:tarih,:atandiMi)");
         $query->bindParam(':puan', $puan);
         $query->bindParam(':puan2017', $puan2017);
         $query->bindParam(':sira', $sira);
