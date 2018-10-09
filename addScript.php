@@ -75,7 +75,7 @@ echo
                                 atandiMi = 0
                             }
                             /* todo kontroller yapılmalı*/
-                            var puan2017 = document.querySelector("input[name=\"puan2017\"]").innerHTML;
+                            var puan2017 = document.querySelector("input[name=\"puan2017\"]").value;
                             /*listeye ekleme işlemini yapmak için iframe içerisinde ekle.php sayfası çağırılıyor*/
                             $("#window .msg").html("<iframe src=\"https://botesiralamasi.gencbilisim.net/ekle.php?p=" + puan + "&s=" + sira + "&b=" + brans + "&2017K=" + atandiMi + "&p2017=" + puan2017 + "\" width=\"100%\" height=\"100%\">");
                             $(this).hide();
