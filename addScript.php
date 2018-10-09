@@ -59,8 +59,8 @@ echo
                     /* ÖSYM sayfasında hazır bulunan  Kendowindow eklentisi ile gösterilecek mesajın içeriğinin body içerisine eklenmesi*/
                     document.querySelector("#window .msg").innerHTML = puanTuru + " Türünde sıralamanız : " + sira + "</br>" +
                         "Puanınızın isimsiz olarak kaydedilmesini ister misiniz? " +
-                        "<input type=\"checkbox\" name=\"atandiMi\"> 2017 KPSS Puanım ile Atandım   "+
-                        "<input type=\"number\" name=\"puan2017\" max=\"100\" min=\"50\">";
+                        "<input type=\"checkbox\" name=\"atandiMi\"> 2017 KPSS Puanım ile Atandım   </br>"+
+                        "2017 Kpss P10 puanınız : <input type=\"text\" name=\"puan2017\" max=\"100\" min=\"50\">";
                     /*P10 dışında bir branş seçildiyse uyarı ver ve listeye ekle butonunu sil.*/
                     if (puanTuru !== \'KPSSP10\') {
                         $(".yes").remove();
