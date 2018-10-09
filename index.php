@@ -143,7 +143,7 @@
                 <th>Genel Sıralama</th>
                 <th>Atandı mı?</th>
                 <th data-toggle="tooltip" data-placement="bottom" title="2017 Puanı ile atanmış olan kişiler sıralamadan düştükten sonra oluşan sıralamayı gösterir">Güncel Sıra</th>
-                <th>Güncelleme Tarihi</th>
+                <th>Güncelleme</th>
                 </thead>
                 <tbody>
 
@@ -153,7 +153,7 @@
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
                         <td><?= $row['puan2017'] ?></td>
-                        <td><?= $row['brans'] ?></td>
+                        <td><?= $row['brans']=="BİLGİSAYAR VE ÖĞRETİM TEKNOLOJİLERİ ÖĞRETMENLİĞİ"? "BÖTE": $row['brans']?></td>
                         <td><?= $row['sira'] ?></td>
                         <td><?php
                             if (is_null($row['atandiMi']) || $row['atandiMi'] == 2) {
