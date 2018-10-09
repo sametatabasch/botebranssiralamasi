@@ -138,9 +138,10 @@
                 <thead>
                 <th>Sıra</th>
                 <th>Puan</th>
+                <th>2017 Puan</th>
                 <th>Branş</th>
                 <th>Genel Sıralama</th>
-                <th>2017 Kpss İle Atandı</th>
+                <th>Atandı mı?</th>
                 <th data-toggle="tooltip" data-placement="bottom" title="2017 Puanı ile atanmış olan kişiler sıralamadan düştükten sonra oluşan sıralamayı gösterir">Güncel Sıra</th>
                 <th>Güncelleme Tarihi</th>
                 </thead>
@@ -151,6 +152,7 @@
                     <tr>
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>
+                        <td><?= $row['puan2017'] ?></td>
                         <td><?= $row['brans'] ?></td>
                         <td><?= $row['sira'] ?></td>
                         <td><?php

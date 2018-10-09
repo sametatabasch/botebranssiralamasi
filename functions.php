@@ -23,10 +23,12 @@ function listeyeEkle($puan, $puan2017, $sira, $brans, $_atandiMi)
     global $db;
     $tarih = date('d.m.Y');
     $atandiMi = $_atandiMi === true ? 1 : 0;
+    $tercihEdilenPuan= max($puan,$puan2017);
     try {
-        $query = $db->prepare("REPLACE INTO liste2018 (puan,puan2017,sira,brans,tarih,atandiMi) VALUES (:puan,:puan2017,:sira,:brans,:tarih,:atandiMi)");
+        $query = $db->prepare("REPLACE INTO liste2018 (puan,puan2017,tercihEdilenPuan,sira,brans,tarih,atandiMi) VALUES (:puan,:puan2017,:tercihEdilenPuan,:sira,:brans,:tarih,:atandiMi)");
         $query->bindParam(':puan', $puan);
         $query->bindParam(':puan2017', $puan2017);
+        $query->bindParam(':tercihEdilenPuan', $tercihEdilenPuan);
         $query->bindParam(':sira', $sira);
         $query->bindParam(':brans', $brans);
         $query->bindParam(':tarih', $tarih);
