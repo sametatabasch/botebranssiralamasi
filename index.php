@@ -142,13 +142,18 @@
                 <th>Branş</th>
                 <th>Genel Sıralama</th>
                 <th>Atandı mı?</th>
-                <th data-toggle="tooltip" data-placement="bottom" title="2017 Puanı ile atanmış olan kişiler sıralamadan düştükten sonra oluşan sıralamayı gösterir">Güncel Sıra</th>
+                <th data-toggle="tooltip" data-placement="bottom" title="2017 Puanı yüksek olan kişiler 2017 puanına göre en uygun sıraya yerleştirildikten ve 2017 ile atanmış olan kişiler sıralamadan düştükten sonra oluşan sıralamayı gösterir">Güncel Sıra</th>
                 <th>Güncelleme</th>
                 </thead>
                 <tbody>
 
                 <?php $s = 1;
-                foreach ($db->query("SELECT *, (t1.sira - (SELECT COUNT(id) FROM liste2018 AS t2 WHERE atandiMi = 1 AND t2.sira < t1.sira)) AS guncelSira FROM liste2018 AS t1 ORDER BY sira ASC") as $row): ?>
+                $sorgu = "SELECT *,
+                    IF (puan2017 > puan, (SELECT sira FROM liste2018 AS t4 WHERE t4.tercihEdilenPuan < hhy.tercihEdilenPuan ORDER BY t4.tercihEdilenPuan DESC LIMIT 1), geciciSira) AS guncelSira
+                    FROM (SELECT *, t1.sira - (SELECT COUNT(id) FROM liste2018 AS t2 WHERE t2.atandiMi = 1 AND t2.sira < t1.sira)
+	                + (SELECT COUNT(id) FROM liste2018 AS t3 WHERE t3.tercihEdilenPuan > t1.puan AND t3.puan < t1.puan) AS geciciSira
+	                FROM liste2018 AS t1) AS hhy ORDER BY guncelSira ASC";
+                foreach ($db->query($sorgu) as $row): ?>
                     <tr>
                         <td><?= $s ?></td>
                         <td><?= $row['puan'] ?></td>

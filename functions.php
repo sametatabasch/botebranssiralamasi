@@ -36,21 +36,6 @@ function listeyeEkle($puan, $puan2017, $sira, $brans, $_atandiMi)
         $query->bindParam(':atandiMi', $atandiMi);
         $query->execute();
 
-        $eklenenPuanId= $db->lastInsertId();
-        $query=$db->query("SELECT * FROM liste2018 where id=$eklenenPuanId");
-        $query->execute();
-        $eklenenPuan=$query->fetchObject();
-
-        /* Tercih edilen puana göre yerleşilecek olansıra belirleniyor*/
-        $yeniguncelSira=$db->query("SELECT MIN(sira) As yeniSira FROM liste2018 where puan < $eklenenPuan->tercihEdilenPuan");
-        $yeniguncelSira=$yeniguncelSira->fetch()['yeniSira'];
-
-        /*yerleşilecek olan sıra hesaplananSira olarak veri tabanına yazılıyor*/
-        $query=$db->query("UPDATE liste2018 SET hesaplananSira=$yeniguncelSira where id=$eklenenPuanId");
-
-        /* kişinin hesaplanan sıralaması ile eski sıralaması arasında kalan güncel sıralamaları 1 arttır.*/
-        $query=$db->query("UPDATE liste2018 SET hesaplananSira=(hesaplananSira+1) where hesaplananSira<$eklenenPuan->sira ANd hesaplananSira>=$yeniguncelSira AND id!=$eklenenPuanId");
-
     } catch (PDOException $e) {
         die('Hata: ' . $e->getMessage());
     }
