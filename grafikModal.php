@@ -26,19 +26,12 @@
                 $data .= "]";
                 ?>
                 <div id="container">
-                    2017 KPSS puanı ile
-                    <div class="btn-group">
-                        <div class="btn btn-default">ataması yapılmış <span class="badge">
+                    <div class="center-block btn btn-default">2017 KPSS puanı ile
+                        ataması yapılmış <span class="badge">
 				<?= $db->query("SELECT count(puan) AS toplam FROM liste2018 WHERE atandiMi=1")->fetch()['toplam'] ?></span>
-                        </div>
-                        <div class="btn btn-default">ataması yapılmamış <span class="badge">
+                        ataması yapılmamış <span class="badge">
 				<?= $db->query("SELECT count(puan) AS toplam FROM liste2018 WHERE atandiMi=0")->fetch()['toplam'] ?></span>
-                        </div>
-                        <div class="btn btn-default">atanma durumunu güncellemesi gereken <span class="badge">
-				<?= $db->query("SELECT count(puan) AS toplam FROM liste2018 WHERE atandiMi=2")->fetch()['toplam'] ?></span>
-                        </div>
-                    </div>
-                    kişi var.
+                        kişi var.</div>
                     <div id="grafik" style="width:100%; height:400px;"></div>
                 </div>
                 <script>
