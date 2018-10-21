@@ -141,9 +141,8 @@
                 <th>2017 Puan</th>
                 <th>Branş</th>
                 <th>Genel Sıralama</th>
-                <th>Atandı mı?</th>
                 <th data-toggle="tooltip" data-placement="bottom" title="2017 Puanı yüksek olan kişiler 2017 puanına göre en uygun sıraya yerleştirildikten ve 2017 ile atanmış olan kişiler sıralamadan düştükten sonra oluşan sıralamayı gösterir">Güncel Sıra</th>
-                <th>Güncelleme</th>
+                <th class="hidden-xs">Güncelleme</th>
                 </thead>
                 <tbody>
 
@@ -159,22 +158,15 @@
                         <td><?= $row['puan'] ?></td>
                         <td><?= $row['puan2017'] ?></td>
                         <td><?= $row['brans']=="BİLGİSAYAR VE ÖĞRETİM TEKNOLOJİLERİ ÖĞRETMENLİĞİ"? "BÖTE": $row['brans']?></td>
-                        <td><?= $row['sira'] ?></td>
-                        <td><?php
-                            if (is_null($row['atandiMi']) || $row['atandiMi'] == 2) {
-                                $atamaDurumu = 'Güncelleme Gerekli';
-                            } else {
-                                $atamaDurumu = $row['atandiMi'] ? 'Evet' : 'Hayır';
-                            }
-                            echo $atamaDurumu ?></td>
+                        <td><?= $row['sira'] ?> </td>
                         <?php
                             if ($row['atandiMi'] == 1) {
-                                echo '<td style="background-color:green"></td>';
+                                echo '<td class="bg-success">Atandı</td>';
                             } else {
                                 echo '<td>'.$row['guncelSira'].'</td>';
                             }
                         ?>
-                        <td><?= $row['tarih'] ?></td>
+                        <td class="hidden-xs"><?= $row['tarih'] ?></td>
                     </tr>
                     <?php $s++; endforeach; ?>
                 </tbody>
