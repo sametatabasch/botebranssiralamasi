@@ -167,7 +167,13 @@
                                 $atamaDurumu = $row['atandiMi'] ? 'Evet' : 'Hayır';
                             }
                             echo $atamaDurumu ?></td>
-                        <td><?= $row['guncelSira'] ?></td>
+                        <?php
+                            if ($row['atandiMi'] == 1) {
+                                echo '<td style="background-color:green"></td>';
+                            } else {
+                                echo '<td>'.$row['guncelSira'].'</td>';
+                            }
+                        ?>
                         <td><?= $row['tarih'] ?></td>
                     </tr>
                     <?php $s++; endforeach; ?>
